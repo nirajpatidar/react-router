@@ -1,0 +1,9 @@
+.card-post {
+    display: inline-block;
+    width: 400px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    min-height: 200px;
+    max-height: 200px;
+    overflow: scroll;
+}
