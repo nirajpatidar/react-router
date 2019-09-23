@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './user.css';
 
+import './user.css';
+import {Card} from 'react-bootstrap';
 class User extends Component {
 
     render() {
         const user = this.props.user;
         return (
-            <div className="card user-card">
-                <div className="card-body">
-                     <a href={`user/${user.id}`}><h4>{user.username}</h4></a>
+            <Card className="user-card">
+                <Card.Body>
+                     <a href={`/user/${user.id}`}><h4>{user.username}</h4></a>
                      <div className="d-flex justify-content-between">
                         <div>Email</div>
                         <div>{user.email}</div>
@@ -17,8 +18,8 @@ class User extends Component {
                         <div>Phone</div>
                         <div>{user.phone}</div>
                      </div>
-                </div>
-            </div>
+                </Card.Body>
+            </Card>
         );
     }
 }
