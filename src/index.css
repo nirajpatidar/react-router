@@ -19,6 +19,7 @@ code {
     monospace;
 }
 .top-navigation {
-  background: rgba(0, 0, .6, .3);
+  background: #fff;
   height: 62px;
+  box-shadow: 0px 1px 2px 0px #ccc;
 }

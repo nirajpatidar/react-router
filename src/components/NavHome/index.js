@@ -23,44 +23,44 @@ class NavHome extends Component {
             <div>
                 Nav Home
 
-  <div>
-    <h1>Friend List</h1>
-    <Formik
-      initialValues={{ friends: ['jared', 'ian', 'brent'] }}
-      onSubmit={values =>
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-        }, 500)
-      }
-      render={({ values }) => (
-        <Form>
-          <FieldArray
-            name="friends"
-            render={arrayHelpers => (
               <div>
-                {values.friends && values.friends.length > 0 ? (
-                  values.friends.map((friend, index) => (
-                    <div key={index}>
-                      <Field name={`friends.${index}`} />
-                      
-                    </div>
-                  ))
-                ) : (
-                  <button type="button" onClick={() => arrayHelpers.push('')}>
-                    {/* show this when user has removed all friends from the list */}
-                    Add a friend
-                  </button>
-                )}
-                <div>
-                  <button type="submit">Submit</button>
+               <h1>Friend List</h1>
+                <Formik
+                  initialValues={{ friends: ['jared', 'ian', 'brent'] }}
+                  onSubmit={values =>
+                    setTimeout(() => {
+                      alert(JSON.stringify(values, null, 2));
+                    }, 500)
+                  }
+                  render={({ values }) => (
+                    <Form>
+                      <FieldArray
+                        name="friends"
+                        render={arrayHelpers => (
+                          <div>
+                            {values.friends && values.friends.length > 0 ? (
+                              values.friends.map((friend, index) => (
+                                <div key={index}>
+                                  <Field name={`friends.${index}`} />
+                                  
+                                </div>
+                              ))
+                            ) : (
+                              <button type="button" onClick={() => arrayHelpers.push('')}>
+                                {/* show this when user has removed all friends from the list */}
+                                Add a friend
+                              </button>
+                            )}
+                            <div>
+                              <button type="submit">Submit</button>
+                            </div>
+                          </div>
+                        )}
+                      />
+                    </Form>
+                  )}
+                />
                 </div>
-              </div>
-            )}
-          />
-        </Form>
-      )}
-    />
-  </div>
 
                 <Formik
                     initialValues={{ email: '', closeDate: '', example: "" }}
@@ -135,7 +135,7 @@ class NavHome extends Component {
                         </form>
                         );
                     }}
-                    </Formik>
+                </Formik>
             </div>
         );
     }
@@ -158,38 +158,18 @@ const SelectField : React.SFC<ReactSelectProps & FieldProps> = ({
       onBlur={field.onBlur}
     />
   )}
-// const DatePickerField = ({ name, value, onChange }) => {
-//     console.log('datepicker', name)
-//     return (
-//       <DatePicker
-//         dateFormat="yyyy-MM-dd"
-//         selected={value }
-//         onChange={val => {
-//           onChange(name, (moment(val).toISOString()).format('yyyy-MM-dd'));
-//         }}
-//       />
-//     );
-//   };
-function convert(str) {
-  var date = new Date(str),
-    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
-    day = ("0" + date.getDate()).slice(-2);
-  return [date.getFullYear(), mnth, day].join("-");
-}
 const DatePickerField = ({ name, value, onChange }) => {
-  value = value != '' ? new Date(): parseISO('2019-10-12');
-  const [startDate, setStartDate] = useState(value);
-  useEffect(() => {
-    let newDate = convert(startDate)
-    onChange(name, newDate)
-  }, [startDate]);
-  return (
-    <DatePicker
-      dateFormat="yyyy-MM-dd"
-      showPopperArrow={false}
-      selected={startDate}
-      onChange={date => setStartDate(date)}
-    />
-  );
-}
+    console.log('datepicker', name)
+    return (
+      <DatePicker
+        dateFormat="yyyy-MM-dd"
+        selected={value }
+        onChange={val => {
+          onChange(name, (moment(val).toISOString()).format('yyyy-MM-dd'));
+        }}
+      />
+    );
+  };
+
+
 export default NavHome;

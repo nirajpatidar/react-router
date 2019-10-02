@@ -1,0 +1,13 @@
+.sidebar {
+    width: 200px;
+    display: inline-block;
+    float: left;
+    background: #fff;
+    height: calc(100vh - 62px);
+}
+.content {
+    width: calc(100% - 200px);
+    float: right;
+    background: rgb(233, 234, 234);
+    padding: 30px 15px;
+}
